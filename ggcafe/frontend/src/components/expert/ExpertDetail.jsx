@@ -1,5 +1,4 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 
 const StyledDetail = styled.div`
@@ -108,31 +107,48 @@ const StyledDetail = styled.div`
 `;
 
 const ExpertDetail = (info) => {
+  const {
+    id,
+    name,
+    urlToImage,
+    summary,
+    career,
+    education,
+    description,
+    effectOfCounselling,
+    howToCounselling,
+  } = info.info;
+
+  const handleClickToMatch = (event) => {
+    event.preventDefault();
+    window.location.href = `/match/${id}`;
+  };
+
   return (
     <StyledDetail>
       <div className="container">
         <div className="expertInfo">
           <div className="expertBox">
             <div className="picture">
-              <img src={info.info.urlToImage} alt="expertPicture" />
+              <img src={urlToImage} alt="expertPicture" />
             </div>
             <div className="nameBox">
-              <div className="name">{info.info.name}</div>
-              <NavLink to="/calendar" className="buttonBox">
-                <button type="button">상담 신청하기</button>
-              </NavLink>
+              <div className="name">{name}</div>
+              <button type="submit" onClick={handleClickToMatch}>
+                상담 신청하기
+              </button>
             </div>
           </div>
           <div className="specBox">
-            <div className="mainTitle">{info.info.summary}</div>
+            <div className="mainTitle">{summary}</div>
             <div className="spec">
               <div className="career">
                 <div className="title">경력</div>
-                <div className="description">{info.info.career}</div>
+                <div className="description">{career}</div>
               </div>
               <div className="education">
                 <div className="title">학력</div>
-                <div className="description">{info.info.education}</div>
+                <div className="description">{education}</div>
               </div>
             </div>
           </div>
@@ -143,19 +159,19 @@ const ExpertDetail = (info) => {
           <div className="Box">
             <div className="descriptionBox">
               <div className="title">심리상담을 주저하시는 분에게</div>
-              <div className="description">{info.info.description}</div>
+              <div className="description">{description}</div>
             </div>
             <hr />
 
             <div className="descriptionBox">
               <div className="title">상담사님과의 심리상담 효과</div>
-              <div className="description">{info.info.effectOfCounselling}</div>
+              <div className="description">{effectOfCounselling}</div>
             </div>
             <hr />
 
             <div className="descriptionBox">
               <div className="title">상담사님의 심리상담 방식</div>
-              <div className="description">{info.info.howToCounselling}</div>
+              <div className="description">{howToCounselling}</div>
             </div>
             <hr />
           </div>
