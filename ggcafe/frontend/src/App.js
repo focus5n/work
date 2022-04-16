@@ -17,6 +17,8 @@ import ExpertListService from "./services/expertService/ExpertListService";
 import ExpertDetailService from "./services/expertService/ExpertDetailService";
 // 매칭
 import MatchService from "./services/matchService/MatchService";
+// 매칭 결과
+import Result from "./components/match/Result";
 // 로그인
 import SignIn from "./components/auth/SignIn";
 // 회원가입
@@ -42,6 +44,7 @@ function App() {
           <Route path="detail/:id" element={<ExpertDetailService />} />
           {/* 매치 */}
           <Route path="match/:id" element={<MatchService />} />
+          <Route path="result/:id" element={<Result />} />
           {/* 로그인 */}
           <Route path="signin" element={<SignIn />} />
           <Route path="signup" element={<SignUp />} />
