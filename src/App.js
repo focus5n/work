@@ -15,8 +15,8 @@ import Diary from "./components/diary/Diary";
 import ExpertListService from "./services/expertService/ExpertListService";
 // 전문가 상세정보
 import ExpertDetailService from "./services/expertService/ExpertDetailService";
-// 상담 받기
-import Match from "./components/counselling/Counselling";
+// 매칭
+import Match from "./components/match/Match";
 // 로그인
 import SignIn from "./components/auth/SignIn";
 // 회원가입
@@ -33,16 +33,11 @@ function App() {
       <BrowserRouter>
         <Header />
         <Routes path="/">
-          {/* 메인 화면 */}
           <Route index path="" element={<Home />} />
-          {/* 일기장 서비스 */}
           <Route path="diary" element={<Diary />} />
-          {/* 전문가 서비스 */}
           <Route path="expert" element={<ExpertListService />} />
           <Route path="detail/:id" element={<ExpertDetailService />} />
-          {/* 매칭 서비스 */}
           <Route path="match/:id" element={<Match />} />
-          {/* 유저 서비스 */}
           <Route path="signin" element={<SignIn />} />
           <Route path="signup" element={<SignUp />} />
           <Route path="callback/kakao" element={<Login />}></Route>
