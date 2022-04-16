@@ -32,14 +32,4 @@ public class ExpertController {
     return expertRepository.findById(id);
   }
 
-  // 전문가 상세정보 출력할 때 사용
-  // @RequestMapping("/expert/{id}")
-  // public Expert ExpertById(@PathVariable("id") long id) {
-  // System.out.println("input: " + id);
-
-  // Expert expert = expertRepository.findById(id).orElse(null);
-  // System.out.println("Export: " + expert.getName() + " / " +
-  // expert.getSummary());
-  // return expert;
-  // }
 }
