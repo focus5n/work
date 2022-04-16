@@ -33,11 +33,16 @@ function App() {
       <BrowserRouter>
         <Header />
         <Routes path="/">
+          {/* 메인화면 */}
           <Route index path="" element={<Home />} />
+          {/* 일기장 */}
           <Route path="diary" element={<Diary />} />
+          {/* 전문가 */}
           <Route path="expert" element={<ExpertListService />} />
           <Route path="detail/:id" element={<ExpertDetailService />} />
+          {/* 매치 */}
           <Route path="match/:id" element={<Match />} />
+          {/* 로그인 */}
           <Route path="signin" element={<SignIn />} />
           <Route path="signup" element={<SignUp />} />
           <Route path="callback/kakao" element={<Login />}></Route>
