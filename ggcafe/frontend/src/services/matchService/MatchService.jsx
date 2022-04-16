@@ -6,11 +6,13 @@ import Match from "../../components/match/Match";
 function MatchService(props) {
   const [data, setData] = useState(null);
   const { id } = useParams();
+  const [test, setTest] = useState("");
 
   useEffect(() => {
     const fetch = async () => {
       const response = await axios.get(`http://localhost:8080/expert/${id}`);
       setData(response.data);
+      window.sessionStorage.setItem("expertName", data.name);
     };
     fetch();
   }, [id]);
@@ -19,7 +21,7 @@ function MatchService(props) {
     return null;
   }
 
-  return <Match key={data.urlToImage} info={data}></Match>;
+  return <Match key={data.urlToImage} info={data} setTest={setTest}></Match>;
 }
 
 export default MatchService;

@@ -1,6 +1,7 @@
-import React from "react";
-import { useParams } from "react-router-dom";
+import React, { useState } from "react";
 import styled from "styled-components";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 
 const StyledMatch = styled.div`
   .container {
@@ -21,12 +22,32 @@ const StyledMatch = styled.div`
 `;
 
 function Match(props) {
-  const { id } = useParams;
+  const { testData } = props.setTest;
+  const [matchData, setMatchData] = useState("");
   const userName = window.sessionStorage.getItem("name");
+  const { name: expertName } = props.info;
 
   const handleClick = (event) => {
     event.preventDefault();
-    window.location.href = "/result/{id)}";
+
+    window.location.href = "/result/{id)";
+  };
+
+  const Calendar = () => {
+    const [startDate, setStartDate] = useState(new Date());
+
+    return (
+      <DatePicker
+        selected={startDate}
+        onChange={(date) => setStartDate(date)}
+        minDate={startDate}
+      />
+    );
+  };
+
+  const handleSelect = (event) => {
+    event.preventDefault();
+    setMatchData(value);
   };
 
   return (
@@ -39,15 +60,26 @@ function Match(props) {
           </div>
           <div className="expert">
             <div className="title">전문가</div>
+            <div className="name">{expertName}</div>
           </div>
           <div className="purpose">
             <div className="title">상담목적</div>
+            <select onSelect={handleSelect}>
+              <option value="취업상담">취업상담</option>
+              <option value="학업상담">학업상담</option>
+              <option value="진로상담">진로상담</option>
+            </select>
           </div>
           <div className="date">
             <div className="title">상담날짜</div>
+            <Calendar />
           </div>
           <div className="means">
             <div className="title">상담방식</div>
+            <select>
+              <option value="화상상담">화상상담</option>
+              <option value="채팅상담">채팅상담</option>
+            </select>
           </div>
           <div className="button">
             <button type="submit" onClick={handleClick}>
