@@ -2,7 +2,6 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 
-// Header CSS
 const StyledHeader = styled.div`
   body {
     margin: 0%;
@@ -132,7 +131,6 @@ const StyledHeader = styled.div`
   }
 `;
 
-// toggle-button Event
 function toggleMenu() {
   const toggleMenu = document.querySelector(".toggle-button");
   const menu = document.querySelector(".Header-menu");
@@ -165,13 +163,7 @@ function Header(props) {
             <NavLink to="/expert">전문가 찾기</NavLink>
           </li>
           <li>
-            <NavLink to="/column">전문가 칼럼</NavLink>
-          </li>
-          <li>
             <NavLink to="/counselling/">상담 받기</NavLink>
-          </li>
-          <li>
-            <NavLink to="/information">고객센터</NavLink>
           </li>
           <li>
             <NavLink to="/signup">회원가입</NavLink>
