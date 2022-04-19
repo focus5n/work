@@ -26,6 +26,12 @@
       <artifactId>spring-boot-starter-data-mongodb</artifactId>
     </dependency>
 
+		<dependency> <!-- https://mvnrepository.com/artifact/org.mongodb/mongo-java-driver -->
+			<groupId>org.mongodb</groupId>
+			<artifactId>mongo-java-driver</artifactId>
+			<version>3.12.10</version>
+		</dependency>
+
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
