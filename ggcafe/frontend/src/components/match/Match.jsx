@@ -92,12 +92,13 @@ function Match(props) {
     ));
   };
 
+  // Post
   const PostData = () => {
     useEffect(() => {
-      const pullData = async () => {
+      const requestData = async () => {
         const request = await axios.post(`http://localhost:8082/match/${id}`);
       };
-      pullData();
+      requestData();
     }, []);
   };
 
