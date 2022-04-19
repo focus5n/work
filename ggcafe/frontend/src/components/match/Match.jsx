@@ -23,7 +23,7 @@ const StyledMatch = styled.div`
 `;
 
 function Match(props) {
-  // fields
+  //// Fields
   // url id
   const { id } = useParams();
 
@@ -42,7 +42,7 @@ function Match(props) {
   // date
   const [startDate, setStartDate] = useState(new Date());
 
-  // handlers
+  //// Handlers
   // select purpose EventHandler
   const handleSelect = (event) => {
     event.preventDefault();
@@ -62,7 +62,7 @@ function Match(props) {
     window.location.href = `/result/${id}`;
   };
 
-  // functions
+  //// Functions
   // select purpose function
   const PurposeOption = () => {
     return purposeList.map((item) => (
