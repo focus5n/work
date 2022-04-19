@@ -94,12 +94,12 @@ function Match(props) {
 
   const PostData = () => {
     useEffect(() => {
-      const pull = async () => {
-        const pullData = await axios.post(`http://localhost:8082/match/${id}`);
+      const pullData = async () => {
+        const request = await axios.post(`http://localhost:8082/match/${id}`);
       };
-    }
-    pull();
-  }, []);
+      pullData();
+    }, []);
+  };
 
   return (
     <StyledMatch>
