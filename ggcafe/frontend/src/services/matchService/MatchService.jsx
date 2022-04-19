@@ -12,7 +12,6 @@ function MatchService(props) {
     const fetch = async () => {
       const response = await axios.get(`http://localhost:8080/expert/${id}`);
       setData(response.data);
-      window.sessionStorage.setItem("expertName", data.name);
     };
     fetch();
   }, [id]);
