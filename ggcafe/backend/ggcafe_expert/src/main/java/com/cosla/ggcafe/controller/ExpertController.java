@@ -26,7 +26,6 @@ public class ExpertController {
   }
 
   // 전문가 상세정보 출력할 때 사용
-
   @RequestMapping("/expert/{id}")
   public Optional<Expert> ExpertById(@PathVariable("id") long id) {
     return expertRepository.findById(id);
