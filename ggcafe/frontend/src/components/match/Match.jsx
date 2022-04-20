@@ -3,6 +3,7 @@ import styled from "styled-components";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { useParams } from "react-router-dom";
+import axios from "axios";
 
 const StyledMatch = styled.div`
   .container {
@@ -41,6 +42,16 @@ function Match(props) {
 
   // date
   const [startDate, setStartDate] = useState(new Date());
+
+  // Total data
+  const matchData = [
+    id,
+    userName,
+    expertName,
+    selectedPurpose,
+    selectedMeans,
+    startDate,
+  ];
 
   //// Handlers
   // select purpose EventHandler
@@ -96,7 +107,9 @@ function Match(props) {
   const PostData = () => {
     useEffect(() => {
       const requestData = async () => {
-        const request = await axios.post(`http://localhost:8082/match/${id}`);
+        await axios.post(`http://localhost:8082/match/${id}`, {
+          matchData,
+        });
       };
       requestData();
     }, []);
