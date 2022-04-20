@@ -18,14 +18,16 @@ public class MatchController {
   @Autowired
   private MatchService matchService;
 
+  // create match rest api
   @PostMapping("/match")
-  public Match createMatch(@RequestBody Match match) {
+  public Match creatematch(@RequestBody Match match) {
     return matchService.createMatch(match);
   }
 
+  // get match by id
   @GetMapping("/match/{id}")
-  public Match getMatchById(@PathVariable Long id) {
-    return matchService.getMatchById(id);
+  public Match getMatchById(@PathVariable Long matchId) {
+    return matchService.getMatchById(matchId);
   }
 
 }
