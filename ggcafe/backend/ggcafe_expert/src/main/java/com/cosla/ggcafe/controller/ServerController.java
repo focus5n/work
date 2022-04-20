@@ -10,4 +10,5 @@ public class ServerController {
   public String home() {
     return "home";
   }
+
 }
