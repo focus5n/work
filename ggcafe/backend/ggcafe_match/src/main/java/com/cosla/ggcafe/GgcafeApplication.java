@@ -10,4 +10,4 @@ public class GgcafeApplication {
 		SpringApplication.run(GgcafeApplication.class, args);
 	}
 
-}
+}`
