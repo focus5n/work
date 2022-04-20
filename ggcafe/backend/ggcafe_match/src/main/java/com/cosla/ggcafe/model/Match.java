@@ -21,8 +21,8 @@ import lombok.Data;
 public class Match {
 
   @Id
-  @GeneratedValue(strategy = GenerationType.AUTO)
-  private Long id;
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  private Long matchId;
 
   // 식별정보
   private String userName;
