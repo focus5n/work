@@ -19,7 +19,7 @@ public class ExpertController {
   @Autowired
   ExpertRepository expertRepository;
 
-  // 전문가 목록 출력헐 때 사용
+  // 전문가 목록 출력할 때 사용
   @RequestMapping("/expert")
   public List<Expert> ExpertAll() {
     return expertRepository.findAll();
