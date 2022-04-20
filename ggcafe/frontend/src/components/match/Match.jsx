@@ -43,7 +43,7 @@ function Match(props) {
   // date
   const [startDate, setStartDate] = useState(new Date());
 
-  // Total data
+  // Total data for POST
   const matchData = [
     id,
     userName,
@@ -107,7 +107,7 @@ function Match(props) {
   const PostData = () => {
     useEffect(() => {
       const requestData = async () => {
-        await axios.post(`http://localhost:8082/match/${id}`, {
+        await axios.post(`http://localhost:8082/match`, {
           matchData,
         });
       };

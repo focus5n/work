@@ -1,8 +1,6 @@
 package com.cosla.ggcafe.service;
 
-import java.util.List;
-import java.util.Optional;
-
+import com.cosla.ggcafe.exception.ResourceNotFoundException;
 import com.cosla.ggcafe.model.Match;
 import com.cosla.ggcafe.repository.MatchRepository;
 
@@ -18,17 +16,17 @@ public class MatchService {
   @Autowired
   private MatchRepository matchRepository;
 
-  public List<Match> getAllMatch() {
-    return matchRepository.findAll();
-  }
-
-  public Match getMatchById(@PathVariable Long id) {
-    Match match = matchRepository.findById(id);
-    return ResponseEntity.ok(match);
-  }
-
+  // create match rest api
   public Match createMatch(@RequestBody Match match) {
     return matchRepository.save(match);
+  }
+
+  // get match by id
+  public ResponseEntity<Match> getMatchById(@PathVariable Long matchId) {
+    Match match = matchRepository.findById(matchId)
+        .orElseThrow(() -> new ResourceNotFoundException("Match not exist with id: " + matchId));
+
+    return ResponseEntity.ok(match);
   }
 
 }

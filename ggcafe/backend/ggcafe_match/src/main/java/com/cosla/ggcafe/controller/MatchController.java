@@ -4,6 +4,7 @@ import com.cosla.ggcafe.model.Match;
 import com.cosla.ggcafe.service.MatchService;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -26,7 +27,7 @@ public class MatchController {
 
   // get match by id
   @GetMapping("/match/{id}")
-  public Match getMatchById(@PathVariable Long matchId) {
+  public ResponseEntity<Match> getMatchById(@PathVariable Long matchId) {
     return matchService.getMatchById(matchId);
   }
 
