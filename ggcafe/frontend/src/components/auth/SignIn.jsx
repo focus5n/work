@@ -58,13 +58,12 @@ export default function SignIn() {
     const postData = { email, password };
     console.log(postData);
     await axios
-      .post('/signin', null, {
-        params:
-        {
+      .post("localhost:10001/signin", null, {
+        params: {
           name: postData.name,
           email: postData.email,
           password: postData.password,
-        }
+        },
       })
       .then(function (response) {
         let name, email;
@@ -72,10 +71,9 @@ export default function SignIn() {
         email = response.data.email;
         window.sessionStorage.setItem("name", name);
         window.sessionStorage.setItem("email", email);
-        console.log(response, '성공');
-        window.location = '/';
-        navigate('/');
-
+        console.log(response, "성공");
+        window.location = "/";
+        navigate("/");
       })
       .catch(function (err) {
         console.log(err);
@@ -147,27 +145,25 @@ export default function SignIn() {
               control={<Checkbox value="remember" color="primary" />}
               label="Remember me"
             />
-            <Box sx={{
-            marginTop: 1,
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-          }}
-            >
-            <Link href={KAKAO_AUTH_URL}>
             <Box
-              component="img"
-              src={KakaoLogin}
-            />
-            </Link>
-            <Button
-              type="submit"
-              fullWidth
-              variant="contained"
-              sx={{ mt: 2, mb: 3 }}
+              sx={{
+                marginTop: 1,
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+              }}
             >
-              Sign In
-            </Button>
+              <Link href={KAKAO_AUTH_URL}>
+                <Box component="img" src={KakaoLogin} />
+              </Link>
+              <Button
+                type="submit"
+                fullWidth
+                variant="contained"
+                sx={{ mt: 2, mb: 3 }}
+              >
+                Sign In
+              </Button>
             </Box>
             <Grid container>
               <Grid item xs>
