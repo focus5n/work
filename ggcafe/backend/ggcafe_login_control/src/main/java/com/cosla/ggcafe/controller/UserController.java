@@ -18,7 +18,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-@CrossOrigin(origins = "localhost:3000")
 @Controller
 public class UserController {
 
@@ -53,18 +52,18 @@ public class UserController {
         return user;
     }
 
-    // 로그인
+    //로그인
     @PostMapping("/signin")
     @ResponseBody
     public User signInPost(@ModelAttribute User user) {
         User user2 = userRepository.findByEmailAndPassword(user.getEmail(), user.getPassword());
         Map<String, Object> map = new HashMap<>();
         if (user2 != null) {
-            map.put("code", 200);
-            map.put("msg", "success");
+          map.put("code", 200);
+          map.put("msg", "success");
         } else {
-            map.put("code", 201);
-            map.put("msg", "fail");
+          map.put("code", 201);
+          map.put("msg", "fail");
         }
         return user2;
     }
@@ -72,7 +71,7 @@ public class UserController {
     @GetMapping("/accountinfo/update/{id}")
     @ResponseBody
     public String accountUpdate(@RequestParam("at") String at) {
-
+        
         return "";
     }
 }
