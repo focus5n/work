@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
@@ -30,28 +30,19 @@ function Match(props) {
 
   // user, expert
   const userName = window.sessionStorage.getItem("name");
-  const { name: expertName } = props.info;
+  const userEmail = window.sessionStorage.getItem("email");
+  const { name: expertName, email: expertEmail } = props.info;
 
   // select purpose
   const purposeList = ["취업상담", "학업상담", "진로상담"];
-  const [selectedPurpose, setSelectedPurpose] = useState("");
+  const [matchPurpose, setSelectedPurpose] = useState("");
 
   // select means
   const meansList = ["화상상담", "채팅상담"];
-  const [selectedMeans, setSelectedMeans] = useState("");
+  const [matchType, setSelectedMeans] = useState("");
 
   // date
-  const [startDate, setStartDate] = useState(new Date());
-
-  // Total data for POST
-  const matchData = [
-    id,
-    userName,
-    expertName,
-    selectedPurpose,
-    selectedMeans,
-    startDate,
-  ];
+  const [matchDate, setStartDate] = useState(new Date());
 
   //// Handlers
   // select purpose EventHandler
@@ -69,6 +60,20 @@ function Match(props) {
   // submit EventHandler
   const handleSubmit = (event) => {
     event.preventDefault();
+    axios
+      .post(`http://localhost:10003/match`, {
+        id,
+        userName,
+        userEmail,
+        expertName,
+        expertEmail,
+        matchPurpose,
+        matchType,
+        matchDate,
+      })
+      .then((res) => {
+        console.log(res);
+      });
     alert("상담 신청이 완료됐습니다.");
     window.location.href = `/`;
   };
@@ -87,7 +92,7 @@ function Match(props) {
   const Calendar = () => {
     return (
       <DatePicker
-        selected={startDate}
+        selected={matchDate}
         onChange={(date) => setStartDate(date)}
         minDate={new Date()}
       />
@@ -101,18 +106,6 @@ function Match(props) {
         {item}
       </option>
     ));
-  };
-
-  // Post
-  const PostData = () => {
-    useEffect(() => {
-      const requestData = async () => {
-        await axios.post(`http://localhost:10003/match`, {
-          matchData,
-        });
-      };
-      requestData();
-    }, []);
   };
 
   return (
@@ -129,7 +122,7 @@ function Match(props) {
           </div>
           <div className="purpose">
             <div className="title">상담목적</div>
-            <select onChange={handleSelect} value={selectedPurpose}>
+            <select onChange={handleSelect} value={matchPurpose}>
               <PurposeOption />
             </select>
           </div>
@@ -139,7 +132,7 @@ function Match(props) {
           </div>
           <div className="means">
             <div className="title">상담방식</div>
-            <select onChange={handleMeans} value={selectedMeans}>
+            <select onChange={handleMeans} value={matchType}>
               <MeansOption />
             </select>
           </div>
