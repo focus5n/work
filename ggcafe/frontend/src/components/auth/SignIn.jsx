@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 import React, { useState } from "react";
 import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
@@ -13,7 +12,7 @@ import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
-import KakaoLogin from "../../images/kakao_login_medium_wide.png";
+import KakaoLogin from "../../image/kakao_login_medium_wide.png";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
@@ -59,12 +58,13 @@ export default function SignIn() {
     const postData = { email, password };
     console.log(postData);
     await axios
-      .post("/signin", null, {
-        params: {
+      .post('/signin', null, {
+        params:
+        {
           name: postData.name,
           email: postData.email,
           password: postData.password,
-        },
+        }
       })
       .then(function (response) {
         let name, email;
@@ -72,9 +72,10 @@ export default function SignIn() {
         email = response.data.email;
         window.sessionStorage.setItem("name", name);
         window.sessionStorage.setItem("email", email);
-        console.log(response, "성공");
-        window.location = "/";
-        navigate("/");
+        console.log(response, '성공');
+        window.location = '/';
+        navigate('/');
+
       })
       .catch(function (err) {
         console.log(err);
@@ -146,19 +147,28 @@ export default function SignIn() {
               control={<Checkbox value="remember" color="primary" />}
               label="Remember me"
             />
-            <div>
-              <a href={KAKAO_AUTH_URL}>
-                <img src={KakaoLogin} alt="KakaoLogin"></img>
-              </a>
-            </div>
+            <Box sx={{
+            marginTop: 1,
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+          }}
+            >
+            <Link href={KAKAO_AUTH_URL}>
+            <Box
+              component="img"
+              src={KakaoLogin}
+            />
+            </Link>
             <Button
               type="submit"
-              size="kakaosize"
+              fullWidth
               variant="contained"
-              sx={{ mt: 0, mb: 3 }}
+              sx={{ mt: 2, mb: 3 }}
             >
               Sign In
             </Button>
+            </Box>
             <Grid container>
               <Grid item xs>
                 <Link href="#" variant="body2">

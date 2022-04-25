@@ -121,6 +121,7 @@ const ExpertDetail = (info) => {
 
   const handleClickToMatch = (event) => {
     event.preventDefault();
+    window.sessionStorage.setItem("expertId", id);
     window.location.href = `/match/${id}`;
   };
 
@@ -135,7 +136,7 @@ const ExpertDetail = (info) => {
             <div className="nameBox">
               <div className="name">{name}</div>
               <button type="submit" onClick={handleClickToMatch}>
-                상담 신청하기
+                신청하기
               </button>
             </div>
           </div>
