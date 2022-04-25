@@ -58,7 +58,7 @@ export default function SignIn() {
     const postData = { email, password };
     console.log(postData);
     await axios
-      .post("localhost:10001/signin", null, {
+      .post("http://localhost:10001/signin", null, {
         params: {
           name: postData.name,
           email: postData.email,

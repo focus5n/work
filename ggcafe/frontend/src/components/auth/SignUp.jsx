@@ -68,7 +68,7 @@ const SignUp = () => {
     const postData = { name, email, password };
     console.log(postData);
     await axios
-      .post("localhost:10001/signup", null, {
+      .post("http://localhost:10001/signup", null, {
         params: {
           name: postData.name,
           email: postData.email,
