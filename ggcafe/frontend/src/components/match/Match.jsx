@@ -69,8 +69,8 @@ function Match(props) {
   // submit EventHandler
   const handleSubmit = (event) => {
     event.preventDefault();
-    <PostData />;
-    window.location.href = `/result/${id}`;
+    alert("상담 신청이 완료됐습니다.");
+    window.location.href = `/`;
   };
 
   //// Functions

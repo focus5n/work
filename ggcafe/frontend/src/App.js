@@ -57,8 +57,8 @@ function App() {
           <Route index path="/" element={<Home />} />
           <Route path="/diary" element={<Diary />} />
           <Route path="/expert" element={<ExpertListService />} />
-          <Route path="/expert/:id" element={<ExpertDetailService />} />
-          <Route path="/match" element={<MatchService />} />
+          <Route path="/detail/:id" element={<ExpertDetailService />} />
+          <Route path="/match/:id" element={<MatchService />} />
           <Route path="/counsel" element={<Counseling />} />
           <Route path="/writecounselcard" element={<WriteCounselCard />} />
           <Route path="/aftercounsel" element={<Counsel />} />
