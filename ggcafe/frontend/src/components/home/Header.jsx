@@ -165,7 +165,9 @@ function Header(props) {
             <NavLink to="/expert">전문가 찾기</NavLink>
           </li>
           <li>
-            <NavLink to="/counsel">상담 받기</NavLink>
+            <NavLink to="http://localhost:9999/" target="_blank">
+              상담 받기
+            </NavLink>
           </li>
           <li>
             <NavLink to="/signup">회원가입</NavLink>
