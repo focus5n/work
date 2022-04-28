@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-@CrossOrigin(origins = "localhost:3000")
+@CrossOrigin(origins = "https://d35k3q5aek09iz.cloudfront.net/")
 @Controller
 public class UserController {
 

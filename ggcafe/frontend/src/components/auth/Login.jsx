@@ -4,7 +4,7 @@ import React, { useEffect } from "react";
 const Login = () => {
   const code = new URL(window.location.href).searchParams.get("code");
   useEffect(() => {
-    axios.get(`http://localhost:10001/login?code=${code}`).then((res) => {
+    axios.get(`http://13.56.93.238:10001//login?code=${code}`).then((res) => {
       console.log(res);
       window.sessionStorage.setItem("at", res.data.access_token);
       window.sessionStorage.setItem("rt", res.data.refresh_token);
@@ -15,7 +15,7 @@ const Login = () => {
         let email;
         let name;
         axios
-          .get(`http://localhost:10001/accountinfo?at=${at}`)
+          .get(`http://13.56.93.238:10001//accountinfo?at=${at}`)
           .then((res) => {
             console.log(at);
             email = res.data.kakao_account.email;

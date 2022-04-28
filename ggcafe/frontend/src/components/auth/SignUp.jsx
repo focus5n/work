@@ -56,7 +56,7 @@ const SignUp = () => {
   const navigate = useNavigate();
 
   const REST_API_KEY = "29c78343b370300dd32d1c5db788b753";
-  const REDIRECT_URI = "http://localhost:3000/callback/kakao";
+  const REDIRECT_URI = "https://d35k3q5aek09iz.cloudfront.net//callback/kakao";
   const KAKAO_AUTH_URL = `https://kauth.kakao.com/oauth/authorize?client_id=${REST_API_KEY}&redirect_uri=${REDIRECT_URI}&response_type=code`;
 
   const handleAgree = (event) => {
@@ -68,7 +68,7 @@ const SignUp = () => {
     const postData = { name, email, password };
     console.log(postData);
     await axios
-      .post("http://localhost:10001/signup", null, {
+      .post("http://13.56.93.238:10001//signup", null, {
         params: {
           name: postData.name,
           email: postData.email,

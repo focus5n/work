@@ -13,7 +13,9 @@ const ExpertDetailService = () => {
     const fetchData = async () => {
       setLoading(true);
       console.log(id);
-      const response = await axios.get(`http://localhost:10002/expert/${id}`);
+      const response = await axios.get(
+        `http://13.56.93.238:10002//expert/${id}`
+      );
       setData(response.data);
       console.log(data);
       setLoading(false);
